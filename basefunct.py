@@ -8,15 +8,26 @@ while loop == True:
     if choice == "a":
         #display the classes that have been entered
         if bool(classlist):
-            pass #display
-            #TODO: decide how to display the data stored inside of classlist
-            #TODO: decide what the available options should be once list is displayed
-            #TODO: find out how to properly sort based on which season a term was taken as well
+            whichclass = 1
+            for x in classlist:
+                print(whichclass + ".        Course name: "  + x[0] + '\n')
+                whichclass += 1
+                print("         Term: " + x[1][0] + " " + x[1][1] + '\n') #TODO: make this info sortable!
+                print("         Grade: " + x[2] + '\n')
+                print("         Professor's Name: " + x[3] + '\n')
+                print("         Course Rating: " + x[4])
+                print("         Professor's Rating: " + x[5] + "\n\n\n")
             #TODO: translate the percentage-based grade  the user entered into a letter grade
+            print("a. Sort Classes by Term (NOT CURRENTLY WORKING)") #TODO: implement sort
+            print("b. Enter New Class")
+            print("c. Exit Program")
+            choice = input("Please enter an option: ")
+            #TODO: MAKE ENTERING A NEW CLASS AND SORTING INTO SEPARATE FUNCTIONS!!!
+            #TODO: place the usage of choice here (VITAL)
         else: #THERE ARE NO CLASSES STORED
             print("There are no classes stored.\nReturning to main menu\n")
             continue
-    elif choice == "b": #entering a new class
+    elif choice == "b": #entering a new class TURN INTO FUNCTION
         #TODO: error checking on each of the inputs that need error checking
         coursename = input("Please enter the name of the course: ")
         term_str = input("Please enter the term in which you took the course: ")
@@ -27,7 +38,7 @@ while loop == True:
         profrating = int(input("Please enter how you would rate the professor from 1 to 10: ")) #TODO: errorcheck
         currclass = [coursename, term, grade, profname, courserating, profrating]
         classlist.append(currclass)
-        
+
 
     elif choice == "c": #exit program
         break
