@@ -22,13 +22,13 @@ while loop == True:
             #TODO: loop on the display of classes
             whichclass = 1
             for x in classlist:
-                print(whichclass + ".        Course name: "  + x[0] + '\n')
+                print(str(whichclass) + ".       Course name: "  + x[0] + '\n')
                 whichclass += 1
                 print("         Term: " + x[1][0] + " " + x[1][1] + '\n') #TODO: make this info sortable!
-                print("         Grade: " + x[2] + '\n')
+                print("         Grade: " + str(x[2]) + '\n')
                 print("         Professor's Name: " + x[3] + '\n')
-                print("         Course Rating: " + x[4])
-                print("         Professor's Rating: " + x[5] + "\n\n\n")
+                print("         Course Rating: " + str(x[4]))
+                print("         Professor's Rating: " + str(x[5]) + "\n\n\n")
             #TODO: translate the percentage-based grade  the user entered into a letter grade
             
             print("a. Sort Classes by Term (NOT CURRENTLY WORKING)") #TODO: implement sort
