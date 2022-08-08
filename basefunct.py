@@ -1,7 +1,5 @@
-#FOR MICROSERVICE: https://www.youtube.com/watch?v=JTSxXwDO-Lg
 
 from operator import itemgetter
-
 
 def newClass(): #function that takes new class input and makes a new object out of it
     coursename = input("Please enter the name of the course: ")
@@ -10,8 +8,8 @@ def newClass(): #function that takes new class input and makes a new object out 
     term[1] = int(term[1])
     grade = float(input("Please enter the percentage-based grade you got in this course: "))
     profname = input("Please enter the name of your professor for this course: ")
-    courserating = int(input("Please enter how you would rate the course from 1 to 10: ")) #TODO:errorcheck
-    profrating = int(input("Please enter how you would rate the professor from 1 to 10: ")) #TODO: errorcheck
+    courserating = int(input("Please enter how you would rate the course from 1 to 10: "))
+    profrating = int(input("Please enter how you would rate the professor from 1 to 10: "))
     currclass = [coursename, term, grade, profname, courserating, profrating]
     return currclass
 
@@ -20,7 +18,7 @@ def printClasses(listoflists): #print classes from classlist
     for x in listoflists:
         print("\n" + str(whichclass) + ".       Course name: "  + x[0])
         whichclass += 1
-        print("         Term: " + x[1][0] + " " + str(x[1][1])) #TODO: make this info sortable by season as well!
+        print("         Term: " + x[1][0] + " " + str(x[1][1]))
         print("         Grade: " + str(x[2]) + "%")
         print("         Professor's Name: " + x[3])
         print("         Course Rating: " + str(x[4]))
@@ -38,6 +36,12 @@ def sortClasses(listoflists): #sort classes as user chooses to
         else:
             print("This is not a valid option. Please try again.\n")
 
+def calculateGPA(listoflists): #give user's GPA
+    gpa = 0
+    for x in listoflists:
+        gpa = gpa + x[2]
+    return gpa / len(listoflists)
+
 
 
 loop = True #set to false when program is ending
@@ -50,19 +54,21 @@ while loop == True:
     if choice == "a":
         #display the classes that have been entered
         if bool(classlist):
-            #TODO: loop on the display of classes
             printClasses(classlist)
-            #TODO: translate the percentage-based grade  the user entered into a letter grade
             
             print("a. Sort Classes by Term")
             print("b. Enter New Class")
-            print("c. Exit Program")
+            print("c. Calculate GPA")
+            print("d. Exit Program")
             choice = input("Please enter an option: ")
             if choice == "a":
                 sortClasses(classlist)
             elif choice == "b":
                 classlist.append(newClass())
             elif choice == "c":
+                print(calculateGPA(classlist))
+                print('\n')
+            elif choice == "d":
                 break
 
 

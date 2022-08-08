@@ -33,26 +33,31 @@ def gtrends_scraper(all_keywords, cat = 0, timeframe = "today 5-y", geo = "", gp
         case "interest_over_time":
             retstr = "INTEREST OVER TIME DATA:\n" + pytrends.interest_over_time().to_string()
             return retstr
+
         case "get_historical_interest":
             retstr = "HISTORICAL INTEREST DATA:\n" + pytrends.get_historical_interest().to_string()
             return retstr
+
         case "interest_by_region":
             retstr = "INTEREST BY REGION DATA:\n" + pytrends.get_historical_interest().to_string()
             return retstr
+
         case "related_topics":
             retstr = "RELATED TOPICS DATA:\n" + pytrends.related_topics().to_string()
             return retstr
+
         case "related_queries":
             retstr = "RELATED QUERIES DATA:\n" + pytrends.related_queries().to_string()
             return retstr
+
         case "trending_searches":
             retstr = "TRENDING SEARCHES DATA\n" + pytrends.trending_searches().to_string()
             return retstr
+
         case "top_charts":
             retstr = "TOP CHARTS DATA\n" + pytrends.top_charts().to_string()
             return retstr
+            
         case _:
             retstr = "INTEREST OVER TIME DATA:\n" + pytrends.interest_over_time().to_string()
             return retstr
-
-            #TODO: MAKE THIS ALL MAKE SENSE AND DOCUMENT IT FOR USE BY ALEX
